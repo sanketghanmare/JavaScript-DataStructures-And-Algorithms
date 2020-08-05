@@ -6,7 +6,6 @@ class Node {
 }
 
 class Stack {
-
     constructor() {
         this.first = null
         this.last = null;
@@ -31,17 +30,15 @@ class Stack {
             return null
         }
         let temp = this.first;
-        if (this.size === 1) {
-            this.first = null;
+        if (this.first === this.last) {
             this.last = null;
-        } else {
-            this.first = this.first.next;
         }
+        this.first = this.first.next;
         this.size --;
         return temp.val;
 
 
-        //Alternative implementation
+        // Alternative implementation
         // if (!this.first) return null;
         // let temp = this.first;
         // if (this.first === this.last) {

@@ -5,7 +5,7 @@ function getDigit(num, position) {
     //        return strarr[i];
     //    }
     // }
-return Math.floor(Math.abs(num)/(Math.pow(10,position)))%10
+    return Math.floor(Math.abs(num)/(Math.pow(10,position)))%10
 }
 
 function digitCount(num) {
@@ -48,7 +48,4 @@ function radixSort(array) {
 
 
 let numbersArray = [1,3,2234543,234,6245,755,7,543,2,345]
-// console.log("Digit in a ith Place is " + getDigit(12345,4))
-// console.log("Number of DIGITS in a Number " + digitCount(0))
-// console.log("Most digit in a given array of Numbers " + mostDigits(numbersArray))
 console.log(radixSort(numbersArray))

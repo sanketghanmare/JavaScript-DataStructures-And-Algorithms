@@ -18,7 +18,7 @@ class SinglyLinkedList {
          this.head = newnode;
          this.tail = this.head;
      } else {
-        this.tail.next = newnode;
+        this.tail.next = newnode
         this.tail = newnode;
      }
         this.length += 1;
@@ -84,9 +84,7 @@ class SinglyLinkedList {
     }
 
     get(index) {
-        if (index < 0 || index >= this.length) {
-            return null;
-        }
+        
         let counter = 0;
         let current = this.head;
         while (counter !== index) {
@@ -164,33 +162,75 @@ class SinglyLinkedList {
      }
      return this;
     }
+
+    rotate(num) {
+        if(num < 0) {
+            while (num !== 0) {
+                let oldHead = this.head;
+                this.head = this.tail;
+                this.head.next = oldHead;
+                this.tail = this.get(this.length - 1);
+                this.tail.next = null;
+                num ++;
+            }
+        } else {
+            while (num !== 0) {
+                let oldHead = new Node(this.head.val);
+                this.head = this.head.next;
+                this.tail.next = oldHead;
+                this.tail = oldHead;
+                this.tail.next = null;
+                num --;
+            }
+        }
+
+
+        return this;
+    }
 }
 
 let list = new SinglyLinkedList();
 
-list.push("Hi");
-list.push("How");
-list.push("Are");
-list.push("You?");
+// list.push("Hi");
+// list.push("How");
+// list.push("Are");
+// list.push("You?");
 // list.shift();
 // list.shift();
-list.push(100);
+// list.push(100);
 // list.unshift(99)
 
 // console.log(list.get(2))
-list.set(2,"yoyoyo")
-list.insert(5,"insertNodeTail");
-list.insert(0,"insertNodeHead");
+// list.set(2,"yoyoyo")
+// list.insert(5,"insertNodeTail");
+// list.insert(0,"insertNodeHead");
 // list.insert(1,"atOne");
 // list.remove(1)
 // list.remove(1)
 // list.remove(1)
 // list.remove(2)
 // list.remove(0)
-console.log(list.traverse())
-list.reverse()
-console.log("\n")
-console.log(list.traverse())
+// console.log(list.traverse())
+// list.reverse()
+// console.log("\n")
+// console.log(list.traverse())
+
+// list.push(1)
+// list.push(2)
+// list.push(3)
+// list.push(4)
+// list.push(5)
+
+list.push(5)
+list.push(10)
+list.push(15)
+list.push(20)
+list.push(25)
+
+list.rotate(-1)
+// list.rotate(999)
+console.log(list.traverse());
+
 
 
 
